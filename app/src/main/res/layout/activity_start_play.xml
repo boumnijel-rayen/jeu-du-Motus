@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".startPlay">
 
     <View
         android:id="@+id/topView"
@@ -53,15 +53,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/start"
+        android:id="@+id/arleady"
         android:layout_width="282dp"
         android:layout_height="70dp"
         android:layout_marginTop="124dp"
         android:backgroundTint="@color/primary"
         android:fontFamily="@font/montserrat_medium"
-        android:text="START PLAY"
+        android:text="ALREADY PLAYED"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:cornerRadius="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -69,19 +69,18 @@
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <Button
-        android:id="@+id/ranking"
+        android:id="@+id/newGameB"
         android:layout_width="282dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/primary"
         android:fontFamily="@font/montserrat_medium"
-        android:text="RANKING"
+        android:text="NEW GAME"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:cornerRadius="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start" />
+        app:layout_constraintTop_toBottomOf="@+id/arleady" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-
