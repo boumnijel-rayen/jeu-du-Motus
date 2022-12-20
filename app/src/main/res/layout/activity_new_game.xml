@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".startPlay">
+    tools:context=".newGame">
 
     <View
         android:id="@+id/topView"
@@ -52,35 +52,85 @@
         app:layout_constraintStart_toEndOf="@+id/topIcon"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/already"
-        android:layout_width="282dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="124dp"
-        android:backgroundTint="@color/primary"
-        android:fontFamily="@font/montserrat_medium"
-        android:text="ALREADY PLAYED"
-        android:textColor="#FFFFFF"
+    <EditText
+        android:id="@+id/inputName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/round_border"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:hint="Name"
+        android:inputType="text"
+        android:padding="16dp"
         android:textSize="20sp"
-        app:cornerRadius="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-    <Button
-        android:id="@+id/newGameB"
-        android:layout_width="282dp"
-        android:layout_height="70dp"
+    <EditText
+        android:id="@+id/inputLastname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/round_border"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:hint="Last Name"
+        android:inputType="text"
+        android:padding="16dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputName" />
+
+    <EditText
+        android:id="@+id/inputEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/round_border"
+        android:drawableStart="@drawable/ic_email"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat"
+        android:hint="Email"
+        android:inputType="text"
+        android:padding="16dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputLastname" />
+
+    <Button
+        android:id="@+id/submitB"
+        android:layout_width="256dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:backgroundTint="@color/primary"
         android:fontFamily="@font/montserrat_medium"
-        android:text="NEW GAME"
+        android:text="Play"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:cornerRadius="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/already" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
