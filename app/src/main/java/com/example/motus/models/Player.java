@@ -22,6 +22,12 @@ public class Player {
         this.score = score;
     }
 
+    public Player(String name, String lastname, int score) {
+        this.name = name;
+        this.lastname = lastname;
+        this.score = score;
+    }
+
     public Player() {
     }
 
