@@ -13,6 +13,20 @@
         android:theme="@style/Theme.Motus"
         tools:targetApi="31">
         <activity
+            android:name=".Result"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Play"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".CustomTest"
             android:exported="false">
             <meta-data
