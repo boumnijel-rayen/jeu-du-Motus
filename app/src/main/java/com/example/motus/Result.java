@@ -3,7 +3,10 @@ package com.example.motus;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +14,8 @@ public class Result extends AppCompatActivity {
 
     TextView msg;
     ImageView imgRes;
+    Button tryAgain;
+    TextView scoreT;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -20,11 +25,29 @@ public class Result extends AppCompatActivity {
 
         msg = findViewById(R.id.msg);
         imgRes = findViewById(R.id.imageRes);
+        tryAgain = findViewById(R.id.PlayAgainB);
+        scoreT = findViewById(R.id.scoreT);
 
+        String score = getIntent().getStringExtra("score");
+        String res = getIntent().getStringExtra("result");
 
-        imgRes.setImageResource(R.drawable.win);
+        if (res.equals("win")) {
+            msg.setText("Well done, you are a winner !");
+            scoreT.setText("Your score is : " + score);
+            imgRes.setImageResource(R.drawable.win);
+        } else {
+            msg.setText("You are a looser !");
+            scoreT.setText("Your score is : " + score);
+            imgRes.setImageResource(R.drawable.lost);
+        }
 
-        msg.setText("Well done, you are a winner !");
+        tryAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Result.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

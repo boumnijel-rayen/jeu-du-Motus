@@ -96,11 +96,11 @@ public class Helper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public void updatePlayer(Player player){
+    public void updatePlayer(int id,int score){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("score", player.getScore());
-        db.update("PLAYER", contentValues, "id_P = ?", new String[]{String.valueOf(player.getId_P())});
+        contentValues.put("score", score);
+        db.update("PLAYER", contentValues, "id_P = ?", new String[]{String.valueOf(id)});
         db.close();
     }
 

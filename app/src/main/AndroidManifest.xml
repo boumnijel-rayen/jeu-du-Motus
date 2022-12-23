@@ -27,20 +27,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".CustomTest"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".test"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".CustomSelectPlayerList"
             android:exported="false">
             <meta-data

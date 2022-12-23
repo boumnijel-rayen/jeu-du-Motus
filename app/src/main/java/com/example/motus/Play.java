@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,15 +56,31 @@ public class Play extends AppCompatActivity {
         LibWord.setText(libCrypt);
         imageWord.setImageBitmap(word.getImage());
 
+        Cursor c2 = h.getInGame();
+        c2.moveToFirst();
+        int idPlayer = c2.getInt(1);
+
         tryB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!tryWord.getText().toString().equals(word.getLib_word())) {
-                    nbTry--;
-                    msgError = "You have " + nbTry + " try left";
-                    error.setText(msgError);
+                if (!tryWord.getText().toString().toUpperCase().equals(word.getLib_word().toUpperCase())) {
+                    if (nbTry == 1){
+                        h.updatePlayer(idPlayer, 0);
+                        Intent intent = new Intent(Play.this, Result.class);
+                        intent.putExtra("result", "lost");
+                        intent.putExtra("score", 0+"");
+                        startActivity(intent);
+                    }else {
+                        nbTry--;
+                        msgError = "You have " + nbTry + " try left";
+                        error.setText(msgError);
+                    }
                 }else{
+                    int score = 100 - ((7 - nbTry) * 15);
+                    h.updatePlayer(idPlayer, score);
                     Intent intent = new Intent(Play.this, Result.class);
+                    intent.putExtra("result", "win");
+                    intent.putExtra("score", score+"");
                     startActivity(intent);
                 }
             }
