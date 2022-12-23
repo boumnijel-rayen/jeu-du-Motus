@@ -72,6 +72,12 @@ public class Helper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor getPlayersOrdered(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM PLAYER ORDER BY score DESC", null);
+        return cursor;
+    }
+
     public Cursor getWords(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM WORD", null);
@@ -130,6 +136,12 @@ public class Helper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public int getLastPlayerId(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id_P FROM PLAYER ORDER BY id_P DESC LIMIT 1", null);
+        cursor.moveToFirst();
+        return cursor.getInt(0);
+    }
 
 
 }

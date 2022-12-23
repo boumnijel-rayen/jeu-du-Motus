@@ -2,6 +2,8 @@ package com.example.motus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,10 +35,13 @@ public class SelectPlayer extends AppCompatActivity {
 
         playSP = findViewById(R.id.playSP);
 
-        players.add(new Player(1,"Jhon", "Redrigez", "JohnRedrigez@gmail.com", 80));
-        players.add(new Player(2,"Rayen", "Boumnijel", "RayenBoumnijel@gmail.com", 100));
-        players.add(new Player(3,"Karim", "Benzima", "KarimBenzima@gmail.com", 90));
-        players.add(new Player(4,"Neymar", "Jr", "NeymarJr@gmail.com", 70));
+        Cursor c = h.getPlayers();
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            Player p = new Player(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getInt(4));
+            players.add(p);
+            c.moveToNext();
+        }
 
         listView = findViewById(R.id.listViewSelectPlayer);
 
@@ -53,8 +58,13 @@ public class SelectPlayer extends AppCompatActivity {
         playSP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.println(Log.INFO, "id Player =", id[0] +"");
                 h.updateInGame(id[0]);
+                if (id[0] != 0) {
+                    Intent intent = new Intent(SelectPlayer.this, Play.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please select a player", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
